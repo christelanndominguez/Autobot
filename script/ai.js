@@ -20,7 +20,7 @@ module.exports.run = async function({ api, event, args }) {
 
 ━━━━━━━━━━━━━━━
 
- 𝒑𝒖𝒓𝒐 𝒌𝒂 🅰🅸, 𝒅𝒊 𝒌𝒂𝒃𝒂 𝒏𝒂𝒈-𝒂𝒂𝒓𝒂𝒍 𝒏𝒈 𝒎𝒂𝒂𝒚𝒐𝒔?`, event.threadID, event.messageID);
+ Hi, how can I assist you?`, event.threadID, event.messageID);
     return;
   }
   
