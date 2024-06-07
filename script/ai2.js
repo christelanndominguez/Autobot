@@ -40,10 +40,10 @@ module.exports.run = async function ({ api, event, args }) {
         apiName = 'Backup Axios';
     }
 
-    if (!content) return api.sendMessage("𝐏𝐮𝐫𝐨 𝐤𝐚 𝐀𝐢 𝐢𝐭𝐨 𝐨𝐡!\n\nExample: ai what is the solar system?\n\nAyan Ha may example na! Hayop. Nakaka Badtrip Puro Ai.", event.threadID, event.messageID);
+    if (!content) return api.sendMessage("Hi! How can I assist you! Please Provide a Question.\n\nExample: ai what is the solar system?", event.threadID, event.messageID);
 
     try {
-        api.sendMessage(`🔍 |𝙽𝚊𝚐𝚑𝚊𝚑𝚊𝚗𝚊𝚙 𝚙𝚊 𝚗𝚐 𝚜𝚊𝚐𝚘𝚝, 𝙼𝚊𝚐-𝚊𝚗𝚝𝚊𝚢 𝚔𝚊𝚕𝚊𝚗𝚐-_-`, event.threadID, event.messageID);
+        api.sendMessage(`🔍 |Please wait-_-`, event.threadID, event.messageID);
 
         const response = await axios.get(apiUrl);
         const result = isPrimaryApiStable ? response.data.response : response.data.message;
@@ -61,7 +61,7 @@ module.exports.run = async function ({ api, event, args }) {
         const totalRequestCount = await getTotalRequestCount();
         const userNames = await getUserNames(api, uid);
 
-        const responseMessage = `${result}\n\n💌 𝕿𝖆𝖓𝖔𝖓𝖌 𝖓𝖎✍: ${userNames.join(', ')}\n\n𝐜𝐫𝐞𝐝𝐢𝐭𝐬: https://www.facebook.com/Roronoa.Zor0o`;
+        const responseMessage = `${result}\n\n💌 𝑸𝒖𝒆𝒔𝒕𝒊𝒐𝒏 𝑨𝒔𝒌𝒆𝒅 𝑩𝒚✍: ${userNames.join(', ')}\n\nHave a Nice day😉`;
         api.sendMessage(responseMessage, event.threadID, event.messageID);
 
         await saveAxiosStatus(apiName);
