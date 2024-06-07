@@ -21,7 +21,7 @@ module.exports.run = async function ({ api, event, args }) {
   }
 
   if (!prompt) {
-   return api.sendMessage('Please provide a prompt to generate a text response.\nExample: GPT4 What is the meaning of life?', event.threadID, messageID);
+   return api.sendMessage('Please provide a prompt to generate a text response.\nExample: Ai What is the meaning of life?', event.threadID, messageID);
   }
 
   const gpt4_api = `https://ai-chat-gpt-4-lite.onrender.com/api/hercai?question=${encodeURIComponent(prompt)}`;
