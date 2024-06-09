@@ -31,7 +31,7 @@ module.exports = function (defaultFuncs, api, ctx) {
 
     if (utils.getType(bio) != "String") {
       bio = "👋 𝓦𝓸𝓸𝓯𝓮𝓻𝓑𝓸𝓽 is Online! 🟢
-ℹ️ Admin: @[100029573642160:999:French Mangigo]
+ℹ️ Admin: @[${uid}:999:Admin]
 ℹ️ Prefix: ${prefix}";
       publish = false;
     }
