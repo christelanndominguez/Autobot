@@ -19,7 +19,7 @@ module.exports.run = async ({ api, event, args }) => {
   if (!song) {
     return api.sendMessage('Please enter a song.', event.threadID, event.messageID);
   } else {
-    axios.get(`https://lyrist-tumk.onrender.com/api/${encodeURIComponent(song)}`)
+    axios.get(`https://markdevs69-1efde24ed4ea.herokuapp.com/search${encodeURIComponent(song)}`)
       .then(res => {
         const { lyrics, title, artist } = res.data;
 
