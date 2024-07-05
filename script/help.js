@@ -137,7 +137,7 @@ module.exports.run = async function ({
 				api.unsendMessage(messageInfo.messageID, (err) => {
 					if (err) console.error(err);
 				});
-			}, 4000); // 4 seconds
+			}, 7000); // 4 seconds
 		});
 	} catch (error) {
 		console.error(error);
