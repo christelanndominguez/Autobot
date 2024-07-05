@@ -50,16 +50,15 @@ const randomQuotes = [
 
  const randomQuote = randomQuotes[Math.floor(Math.random() * randomQuotes.length)];
 
-
 module.exports.config = {
 	name: 'help',
 	version: '1.0.0',
 	role: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	aliases: ['help'],
 	description: "Beginner's guide",
 	usage: "Help [page] or [command]",
-	credits: 'Develeoper',
+	credits: 'Developer',
 };
 
 module.exports.run = async function ({
@@ -74,36 +73,36 @@ module.exports.run = async function ({
 	try {
 		const eventCommands = enableCommands[1].handleEvent;
 		const commands = enableCommands[0].commands;
+		let helpMessage;
+
 		if (!input) {
 			const pages = 999;
 			let page = 1;
 			let start = (page - 1) * pages;
 			let end = start + pages;
-			let helpMessage = `🔴🟢🟡\n\n====『 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧 』====\n▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱\n\n♡  ∩_∩\n（„• ֊ •„)♡\n╭─∪∪───────────⟡`;
+			helpMessage = `🎨✨『 COMMAND LIST 』✨🎨\n\n🌟 (∩^o^)⊃━☆ﾟ.*･｡ﾟ 🌟\n\n`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
-				helpMessage += `\n├ ✧『 ${i + 1} 』  ${prefix}${commands[i]}\n├──────────────⟡\t`;
+				helpMessage += `💠 『 ${i + 1} 』 ${prefix}${commands[i]}\n\n`;
 			}
-			helpMessage += '\n\n====『𝗙𝗘𝗔𝗧𝗨𝗥𝗘 𝗟𝗜𝗦𝗧』====\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n\n';
+			helpMessage += `🎀『 FEATURE LIST 』🎀\n\n`;
 			eventCommands.forEach((eventCommand, index) => {
-			helpMessage += `╭─────────────────╮\n |\t『 ${index + 1}.』  ${prefix}${eventCommand}\n╰─────────────────╯ \n\n`;
+				helpMessage += `📌『 ${index + 1}.』  ${prefix}${eventCommand}\n\n`;
 			});
-			helpMessage += `𝗣𝗮𝗴𝗲: 『${page}/${Math.ceil(commands.length / pages)}』\nTo view information about a specific command, type '${prefix}help command name.\n\n𝗥𝗔𝗡𝗗𝗢𝗠 𝗙𝗔𝗖𝗧: ${randomQuote}`;
-			api.sendMessage(helpMessage, event.threadID, event.messageID);
+			helpMessage += `\n🌟 Page: ${page}/${Math.ceil(commands.length / pages)}\nTo view information about a specific command, type 'help command name'.\n\n🔮 RANDOM FACT: ${randomQuote}`;
 		} else if (!isNaN(input)) {
 			const page = parseInt(input);
 			const pages = 100;
-			let start = (page - 2) * pages;
+			let start = (page - 1) * pages;
 			let end = start + pages;
-			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧:\n\n`;
+			helpMessage = `🎨✨『 COMMAND LIST 』✨🎨\n\n🌟 (∩^o^)⊃━☆ﾟ.*･｡ﾟ 🌟\n\n`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
-				helpMessage += `\t${i + 1}. 『 ${prefix}${commands[i]} 』\n`;
+				helpMessage += `💠 『 ${i + 1} 』 ${prefix}${commands[i]}\n\n`;
 			}
-			helpMessage += '\n𝗘𝗩𝗘𝗡𝗧 𝗟𝗜𝗦𝗧:\n\n';
+			helpMessage += `🎀『 FEATURE LIST 』🎀\n\n`;
 			eventCommands.forEach((eventCommand, index) => {
-				helpMessage += `\t${index + 1}. 『 ${prefix}${eventCommand} 』\n`;
+				helpMessage += `📌『 ${index + 1}.』  ${prefix}${eventCommand}\n\n`;
 			});
-			helpMessage += `\nPage ${page} of ${Math.ceil(commands.length / pages)}`;
-			api.sendMessage(helpMessage, event.threadID, event.messageID);
+			helpMessage += `\n🌟 Page: ${page}/${Math.ceil(commands.length / pages)}`;
 		} else {
 			const command = [...Utils.handleEvent, ...Utils.commands].find(([key]) => key.includes(input?.toLowerCase()))?.[1];
 			if (command) {
@@ -125,13 +124,23 @@ module.exports.run = async function ({
 				const creditsMessage = credits ? `➛ Credits: ${credits}\n` : '';
 				const versionMessage = version ? `➛ Version: ${version}\n` : '';
 				const cooldownMessage = cooldown ? `➛ Cooldown: ${cooldown} second(s)\n` : '';
-				const message = ` 「 Command 」\n\n➛ Name: ${name}\n${versionMessage}${roleMessage}\n${aliasesMessage}${descriptionMessage}${usageMessage}${creditsMessage}${cooldownMessage}`;
-				api.sendMessage(message, event.threadID, event.messageID);
+				helpMessage = `🔹『 Command 』🔹\n\n➛ Name: ${name}\n${versionMessage}${roleMessage}\n${aliasesMessage}${descriptionMessage}${usageMessage}${creditsMessage}${cooldownMessage}`;
 			} else {
-				api.sendMessage('Command not found.', event.threadID, event.messageID);
+				helpMessage = 'Command not found.';
 			}
 		}
+
+		api.sendMessage(helpMessage, event.threadID, (err, messageInfo) => {
+			if (err) return console.error(err);
+
+			setTimeout(() => {
+				api.unsendMessage(messageInfo.messageID, (err) => {
+					if (err) console.error(err);
+				});
+			}, 4000); // 4 seconds
+		});
 	} catch (error) {
-		console.log(error);
+		console.error(error);
+		api.sendMessage(`An error occurred while processing your request. Please try again later.`, event.threadID, event.messageID);
 	}
 };
