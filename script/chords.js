@@ -21,7 +21,7 @@ module.exports.run = async ({ api, event, args }) => {
     return api.sendMessage("Please provide a song name.", threadID, messageID);
   }
 
-  const apiUrl = `https://jerai.onrender.com/api/chords?song=${encodeURIComponent(song)}`;
+  const apiUrl = `https://nash-rest-api.replit.app/search/chords?song=${encodeURIComponent(song)}`;
 
   try {
     const response = await axios.get(apiUrl);
