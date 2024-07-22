@@ -1,11 +1,11 @@
 const axios = require('axios');
 
 module.exports.config = {
- name: "ai",
+ name: "",
  credits: "cliff",
  version: "1.0.0",
  role: 0,
- aliase: ["ai"],
+ aliase: [""],
  cooldown: 0,
  hasPrefix: false,
 };
