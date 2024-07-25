@@ -1,268 +1,1071 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Contact</title>
-	<script src="https://kit.fontawesome.com/eb9fb5dabb.js" crossorigin="anonymous"></script>
-	<!--link href="style.css" rel="stylesheet" type="text/css" /-->
-	<style>
-		html,
-		body {
-			padding: 0;
-			margin: 0;
-			font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-				Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-		}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Free REST API" />
+    <meta name="author" content="Deku" />
+    <meta name="google-adsense-account" content="ca-pub-1405957159464900" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
+    <!--base href="https://deku-rest-api.replit.app"-->
+    <link href="https://i.imgur.com/A7vMioz.png" rel="icon" />
+    <title>Clar REST-API</title>
+    <link
+      href="https://indrijunanda.github.io/RuangAdmin/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://indrijunanda.github.io/RuangAdmin/css/ruang-admin.min.css"
+      rel="stylesheet"
+    />
+    <meta
+      property="og:title"
+      content="FREE REST API TOOLS & DOWNLOADER ONLINE"
+    />
+    <meta property="og:description" content="Deku - Rest API" />
+    <meta property="og:image" content="https://i.imgur.com/fE9Jvtp.jpeg" />
+    <meta property="og:url" content="index.html" />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/androidstudio.min.css"
+    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
 
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
+    <style>
+      @keyframes fall {
+        0% {
+          transform: translateY(-5vh);
+        }
+        100% {
+          transform: translateY(100vh);
+        }
+      }
 
-		.bg {
-			animation: slide 3s ease-in-out infinite alternate;
-			background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
-			bottom: 0;
-			left: -50%;
-			opacity: .5;
-			position: fixed;
-			right: -50%;
-			top: 0;
-			z-index: -1;
-		}
+      .dot {
+        position: fixed;
+        width: 5px;
+        height: 5px;
+        background-color: white;
+        /* color */
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: fall linear infinite;
+        animation-duration: var(--animation-duration, 3s);
+      }
+    </style>
+  </head>
 
-		.bg2 {
-			animation-direction: alternate-reverse;
-			animation-duration: 4s;
-		}
+  <body id="page-top">
+    <div id="wrapper">
+      <ul
+        class="navbar-nav sidebar bg-gray-900 accordion bg-light"
+        id="accordionSidebar"
+        style="color: rgb(8, 247, 255)"
+      >
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center bg-gray-900"
+          style="color: rgb(7, 255, 201)"
+        >
+          <span style="color: rgb(255, 255, 255)">DEKU - REST API</span>
+        </a>
+        <hr class="sidebar-divider my-0" />
+        <li class="nav-item active">
+          <a class="nav-link">
+            <i class="fas fa-fw fa-code"></i>
+            <span>Documentation</span></a
+          >
+        </li>
+        <hr class="sidebar-divider" />
+        <div class="sidebar-heading">Features</div>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseBootstrap"
+            aria-expanded="true"
+            aria-controls="collapseBootstrap"
+          >
+            <i class="fas fa-fw fa-arrow-down"></i>
+            <span>Downloader API</span>
+          </a>
+          <div
+            id="collapseBootstrap"
+            class="collapse"
+            aria-labelledby="headingBootstrap"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-black py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Downloader Features</h6>
+              <a class="collapse-item" href="/tiktokdl?url=">Tiktok</a>
+              <a
+                class="collapse-item"
+                href="/api/instadl?url=https://www.instagram.com/p/ByxKbUSnubS/?igsh=d2pwYTl2b2c5NzJy"
+                >Instagram</a
+              >
+              <a class="collapse-item" href="/facebook?url="
+                >Facebook video/reels</a
+              >
+              <a class="collapse-item" href="/api/fbdl2?url="
+                >Facebook video/reels V2</a
+              >
+              <a
+                class="collapse-item"
+                href="/ytdl?url=https://www.youtube.com/watch?v=vdhgUEkV-_M&type=mp4"
+                >YouTube (MP4)</a
+              >
+              <a
+                class="collapse-item"
+                href="/ytdl?url=https://www.youtube.com/watch?v=vdhgUEkV-_M&type=mp3"
+                >YouTube (MP3)</a
+              >
+              <a class="collapse-item" href="/spotify?q="
+                >Spotify (using title)</a
+              >
+              <a class="collapse-item" href="/api/spotify2?q="
+                >Spotify (using link)</a
+              >
+              <a class="collapse-item" href="/capcut?url=">Capcut Downloader</a>
+              <a
+                class="collapse-item"
+                href="/api/scdl?q=https://soundcloud.com/sheshizm2/alan-walker-faded-original-copy"
+                >Soundcloud Downloader</a
+              >
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseSearch"
+            aria-expanded="true"
+            aria-controls="collapseSearch"
+          >
+            <i class="fas fa-fw fa-search"></i>
+            <span>Search API</span>
+          </a>
+          <div
+            id="collapseSearch"
+            class="collapse"
+            aria-labelledby="headingSearch"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Search API Features</h6>
+              <a class="collapse-item" href="/api/playstore?q=facebook"
+                >Search Playstore</a
+              >
+              <a
+                class="collapse-item"
+                href="/search/lyrics?q=never gonna give you up"
+                >Lyrics Search</a
+              >
+              <!--a
+                class="collapse-item"
+                href="/search/youtube?q=never gonna give you up"
+                >Youtube Search</a
+              -->
+              <a class="collapse-item" href="/search/spotify?q=leonora"
+                >Spotify Search</a
+              >
+              <a
+                class="collapse-item"
+                href="/api/findsong?lyrics=if a angel has flown away from me"
+                >Search song title using lyrics</a
+              >
+              <a class="collapse-item" href="/bibles?verse=John 3:16"
+                >Search bible verse</a
+              >
+              <a class="collapse-item" href="/search/chords?q=ere juan karlos"
+                >Chords Search</a
+              >
+              <a class="collapse-item" href="/api/ringtone?q=batman"
+                >Search ringtones</a
+              >
+              <a class="collapse-item" href="/api/wikimedia?q=Jose Rizal"
+                >Wikimedia</a
+              >
+              <a class="collapse-item" href="/api/wallpaper?q=batman"
+                >Search wallpapers</a
+              >
+              <a class="collapse-item" href="/api/wallpaper2?q=batman"
+                >Search wallpapers V2</a
+              >
+              <a class="collapse-item" href="/api/scsearch?q=Alan Walker faded"
+                >Soundcloud Search</a
+              >
+              <a class="collapse-item" href="/api/pinterest?q=batman"
+                >Pinterest</a
+              >
+              <!--a class="collapse-item" href="/search/youtube?q=paumanhin">YouTube Search</a-->
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseGames"
+            aria-expanded="true"
+            aria-controls="collapseForm"
+          >
+            <i class="app-menu__icon fa fa-laptop"></i>
+            <span>AI API</span>
+          </a>
+          <div
+            id="collapseGames"
+            class="collapse"
+            aria-labelledby="headingForm"
+            data-parent="#accordionSidebar"
+          >
+            <div class="py-2 collapse-inner rounded">
+              <h6 class="collapse-header">AI API'S FEATURE</h6>
+              <!--a
+                class="collapse-item"
+                href="/api/aiscraper?url=https://facebook.com"
+                >AI Web Scraper</a
+              -->
+              <a class="collapse-item" href="/api/cyberchrono?q=hi who are you?"
+                >CyberChrono AI (I just prompted it but it have a some special
+                features 😄)</a
+              >
+              <!--a class="collapse-item" href="/new/gpt-4_adv?prompt=hi">GPT-4</a-->
+              <a class="collapse-item" href="/gpt4?prompt=hi&uid=100"
+                >GPT-4-Turbo (CONVERSATIONAL)</a
+              >
+              <a class="collapse-item" href="/api/gpt-4o?q=hi&uid=">GPT-4o (CONVERSATIONAL)</a>
+              <a class="collapse-item" href="/new/gpt-3_5-turbo?prompt=hi"
+                >GPT-3.5 v2</a
+              >
+              <a class="collapse-item" href="/gpt3?prompt=hi&uid=100"
+                >GPT-3.5-Turbo</a
+              >
+              <a class="collapse-item" href="/api/palm2?q=hi who are you?"
+                >Google PaLM 2</a
+              >
+              <a class="collapse-item" href="/blackbox?prompt=hi"
+                >Blackbox AI</a
+              >
+              <a class="collapse-item" href="/api/blackboxai?q=hi&uid="
+                >Blackbox AI (Conversational)</a
+              >
+              <a class="collapse-item" href="/api/mixtral-8b?q=hi who are you?"
+                >Mixtral 8b</a
+              >
+              <a class="collapse-item" href="/api/catgpt?prompt=hi who are you?"
+                >Cat GPT</a
+              >
+              <a
+                class="collapse-item"
+                href="/api/nous-hermes-2?q=hi who are you?"
+                >Nous Hermes 2</a
+              >
+              <a class="collapse-item" href="/api/gemma-7b?q=hi who are you?"
+                >Gemma 7b</a
+              >
+              <a class="collapse-item" href="/api/llama-3-70b?q=hi who are you?"
+                >LLAMA 3 70b</a
+              >
+              <!--a class="collapse-item" href="/api/xiaozhi?q=hi who are you?"
+                >Xiaozhi AI (ZhiPuQingYan)</a
+              -->
+              <a class="collapse-item" href="/api/codestral?q=hi who are you?"
+                >Codestral</a
+              >
+              <a
+                class="collapse-item"
+                href="/api/codegpt?type=ask&lang=nodejs?q=make REST API using express module"
+                >Codegpt (ask)</a
+              >
+              <a
+                class="collapse-item"
+                href="/api/codegpt?type=debug&lang=nodejs?q=Find the bug in this code: const add = (a, b) => a + b;"
+                >Codegpt (debug)</a
+              >
+              <a
+                class="collapse-item"
+                href="/api/codegpt?type=code&lang=nodejs?q=make REST API using express module"
+                >Codegpt (code)</a
+              >
+              <a
+                class="collapse-item"
+                href="/api/codegpt?type=refactor&lang=nodejs?q=Refactor this code: const add = (a, b) => a + b;"
+                >Codegpt (refactor)</a
+              >
+              <a
+                class="collapse-item"
+                href="/api/codegpt?type=review&lang=nodejs?q=Review this code: const add = (a, b) => a + b;"
+                >Codegpt (review)</a
+              >
+              <a
+                class="collapse-item"
+                href="/api/codegpt?type=doc&lang=nodejs?q=Document this code: const add = (a, b) => a + b;"
+                >Codegpt (document)</a
+              >
+              <!--a class="collapse-item" href="/api/neuronspike?q=hi who are you?"
+                >Neuronspike</a
+              -->
+              <!--h6 class="collapse-header">LLAMA</h6>
+            <a class="collapse-item" href="/llama-70b?prompt=hi">LLAMA-2-70B</a>
+              <a class="collapse-item" href="/llama-70b?prompt=hi&personality=gojo">Gojo LLAMA</a>
+              <a class="collapse-item" href="/llama-70b?prompt=hi&personality=batusai">Batusai (Kenshin Himura) LLAMA</a>
+              <a class="collapse-item" href="/llama-70b?prompt=hi&personality=kaneki">Kaneki LLAMA</a>
+              <a class="collapse-item" href="/llama-70b?prompt=hi&personality=thorfin">Thorfin LLAMA</a>
+              <a class="collapse-item" href="/llama-70b?prompt=hi&personality=johan">Johan Liebert LLAMA</a>
+              <h6 class="collapse-header">GEMA</h6>
+              <a class="collapse-item" href="/gemma-2b?prompt=hello how are you?">Gemma 2b</a>
+              <a class="collapse-item" href="/gemma-7b?prompt=hello how are you?">Gemma 7b</a-->
+              <!--h6 class="collapse-header">Qwen</h6>
+              <a class="collapse-item" href="/qwen-4b?prompt=hello how are you?">Qwen 2b</a>
+              <a class="collapse-item" href="/qwen-7b?prompt=hello how are you?">Qwen 7b</a>
+              <a class="collapse-item" href="/qwen-14b?prompt=hello how are you?">Qwen 14b</a>
+              <a class="collapse-item" href="/qwen-72b?prompt=hello how are you?">Qwen 72b</a-->
+              <a class="collapse-item" href="/api/claude-3?q=who are you?">Claude 3</a>
+              <a
+                class="collapse-item"
+                href="/api/ask?q=who are you?&model=qwen-b7"
+                >Qwen 7b</a
+              >
+              <!--a class="collapse-item" href="/api/qwen-turbo?q=hi who are you?">Qwen Turbo</a-->
+              <a class="collapse-item" href="/api/ask?q=who are you?&model=leo"
+                >Leo LM</a
+              >
+              <a class="collapse-item" href="/new/gemini?prompt=hello"
+                >Gemini</a
+              >
+              <a class="collapse-item" href="/gemini?prompt=hello"
+                >Gemini 1.5 Flash</a
+              >
+              <a
+                class="collapse-item"
+                href="/gemini?prompt=describe this photo&url=https://i.imgur.com/SmVaQ8D.jpeg"
+                >Gemini 1.5 Flash Vision</a
+              >
+              <a class="collapse-item" href="/api/gemini-1.5-pro?q=who are you?"
+                >Gemini 1.5 Pro</a
+              >
+              <a class="collapse-item" href="/api/deepseek?q=who are you?"
+                >Deepseek AI</a
+              >
+              <!--a class="collapse-item" href="/api/abab6?q=who are you?">Ababs6 5s (by MiniMax)</a-->
+              <a class="collapse-item" href="/api/liner?q=who are you?"
+                >Linerva AI (Liner)</a
+              >
+              <a class="collapse-item" href="/api/nemotron?q=who are you?"
+                >NVIDIA Nemotron</a
+              >
+              <a class="collapse-item" href="/api/wizardlm?q=who are you?"
+                >Microsoft WizardLM</a
+              >
+              <h6 class="collapse-header">SOME NEW CONVERSATIONAL AI</h6>
+              <a
+                class="collapse-item"
+                href="/ai/deepseek-coder?q=who are you?&uid="
+                >Deepseek Coder</a
+              >
+              <a
+                class="collapse-item"
+                href="/ai/discolm-german?q=who are you?&uid="
+                >DiscoLM German</a
+              >
+              <a class="collapse-item" href="/ai/llama-3-8b?q=who are you?&uid="
+                >LlaMa 3</a
+              >
+              <a
+                class="collapse-item"
+                href="/ai/neural-chat-7b?q=who are you?&uid="
+                >Neural Chat</a
+              >
+              <a
+                class="collapse-item"
+                href="/ai/openchat-3.5?q=who are you?&uid="
+                >Open Chat</a
+              >
+              <a
+                class="collapse-item"
+                href="/ai/openhermes-2.5?q=who are you?&uid="
+                >Open Hermes</a
+              >
+              <a class="collapse-item" href="/ai/phi-2?q=who are you?&uid="
+                >Microsoft Phi</a
+              >
+              <a
+                class="collapse-item"
+                href="/ai/qwen1.5-14b?q=who are you?&uid="
+                >Qwen</a
+              >
+              <a
+                class="collapse-item"
+                href="/ai/starling-lm-7b?q=who are you?&uid="
+                >Starling LM</a
+              >
+              <a class="collapse-item" href="/ai/tinyllama?q=who are you?&uid="
+                >Tiny LlaMa</a
+              >
+              <a class="collapse-item" href="/ai/zephyr-7b?q=who are you?&uid="
+                >Zephyr</a
+              >
+              <a
+                class="collapse-item"
+                href="/ai/hermes-2-pro?q=who are you?&uid="
+                >Hermes 2</a
+              >
+              <a class="collapse-item" href="/ai/nemotron?q=who are you?&uid="
+                >NVIDIA Nemotron</a
+              >
+              <a class="collapse-item" href="/ai/wizardlm?q=who are you?&uid="
+                >Microsoft WizardLM</a
+              >
+              <a class="collapse-item" href="/api/copilot?prompt=hi&uid="
+                >Microsoft Copilot</a
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapsePhotooxy"
+            aria-expanded="true"
+            aria-controls="collapsePhotooxy"
+          >
+            <i class="fa fa-anchor" aria-hidden="true"></i>
+            <span>Maker (Customizable)</span>
+          </a>
+          <div
+            id="collapsePhotooxy"
+            class="collapse"
+            aria-labelledby="headingPhotooxy"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Maker Features</h6>
+              <a
+                class="collapse-item"
+                href="/maker?type=ephoto&url=https://ephoto360.com/tao-hieu-ung-chu-phong-cach-dragon-ball-truc-tuyen-1000.html&q=Deku"
+                >Ephoto</a
+              >
+              <a
+                class="collapse-item"
+                href="/maker?type=ephoto&url=https://ephoto360.com/tao-hieu-ung-chu-phong-cach-logo-thor-984.html&q=Deku&q2=Rest API"
+                >Ephoto (2 text)</a
+              >
+              <a
+                class="collapse-item"
+                href="/maker?type=photooxy&url=https://photooxy.com/logo-and-text-effects/write-text-on-burn-paper-388.html&q=Deku"
+                >Photooxy</a
+              >
+              <a
+                class="collapse-item"
+                href="/maker?type=photooxy&url=https://photooxy.com/logo-and-text-effects/make-tik-tok-text-effect-375.html&q=Deku&q2=Rest API"
+                >Photooxy (2 text)</a
+              >
+              <a
+                class="collapse-item"
+                href="/maker?type=textpro&url=https://textpro.me/create-naruto-logo-style-text-effect-online-1125.html&q=Deku"
+                >Textpro</a
+              >
+              <a
+                class="collapse-item"
+                href="/maker?type=photooxy&url=https://textpro.me/create-3d-avengers-logo-online-974.html&q=Deku&q2=Rest API"
+                >Textpro (2 text)</a
+              >
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseOthers"
+            aria-expanded="true"
+            aria-controls="collapseOthers"
+          >
+            <i class="fas fa-fw fa-leaf"></i>
+            <span>Character AI (Conversational)</span>
+          </a>
+          <div
+            id="collapseOthers"
+            class="collapse"
+            aria-labelledby="headingOthers"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Character AI Features</h6>
+              <a class="collapse-item" href="/pai/deku?q=who are you&uid="
+                >Izuku Midoriya</a
+              >
+              <a class="collapse-item" href="/pai/gojo?q=who are you&uid="
+                >Gojo Satoru</a
+              >
+              <a class="collapse-item" href="/pai/sukuna?q=who are you&uid="
+                >Sukuna</a
+              >
+              <a class="collapse-item" href="/pai/rimuru?q=who are you&uid="
+                >Rimuru Tempest</a
+              >
+              <a class="collapse-item" href="/pai/cid?q=who are you&uid="
+                >Cid Kagenou (Shadow)</a
+              >
+              <a class="collapse-item" href="/pai/luffy?q=who are you&uid="
+                >Monkey D. Luffy</a
+              >
+              <a class="collapse-item" href="/pai/rudeus?q=who are you&uid="
+                >Rudeus Greyrat</a
+              >
+              <a class="collapse-item" href="/pai/ichigo?q=who are you&uid="
+                >Ichigo Kurosaki</a
+              >
+              <a class="collapse-item" href="/pai/naruto?q=who are you&uid="
+                >Uzumaki Naruto</a
+              >
+              <a class="collapse-item" href="/pai/boruto?q=who are you&uid="
+                >Uzumaki Boruto</a
+              >
+              <h6 class="collapse-header">Create your own character</h6>
+              <a class="collapse-item" href="/cai/create?name=&prompt=&uid="
+                >Create character</a
+              >
+              <a class="collapse-item" href="/cai/chat?q=&character=&uid="
+                >Chat the character</a
+              >
+            </div>
+          </div>
+        </li>
 
-		.bg3 {
-			animation-duration: 5s;
-		}
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseRandom"
+            aria-expanded="true"
+            aria-controls="collapseRandom"
+          >
+            <i class="fa fa-camera-retro" aria-hidden="true"></i>
+            <span>AI Image Generator</span>
+          </a>
+          <div
+            id="collapseRandom"
+            class="collapse"
+            aria-labelledby="headingRandom"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Image Generator Features</h6>
+              <a class="collapse-item" href="/dreamshaper?prompt=dog"
+                >Dream Shaper</a
+              >
+              <a class="collapse-item" href="/openjourney?prompt=dog"
+                >Open journey</a
+              >
+              <a class="collapse-item" href="/aigen?prompt=dog with its owner"
+                >Photoleap</a
+              >
+              <a class="collapse-item" href="/sdxl?q=dog&style=7">SDXL (PRO)</a>
+              <a class="collapse-item" href="/sdxl/list">SDXL Style List</a>
+              <!--a class="collapse-item" href="/pixart?prompt=dog&styles=7">Pixart</a>
+            <a class="collapse-item" href="/pixart2?prompt=dog&styles=7">Pixart V2</a-->
+              <a class="collapse-item" href="/dalle?prompt=dog with its owner"
+                >Dall-e</a
+              >
+              <!--a class="collapse-item" href="/dallev2?prompt=dog with its owner">Dall-e< V2</a-->
+              <a
+                class="collapse-item"
+                href="/dallemini?prompt=dog with its owner"
+                >Dall-e Mini</a
+              >
+              <a class="collapse-item" href="/emi?prompt=dog">Emi</a>
+              <a class="collapse-item" href="">Prodia (Soon)</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseAnime"
+            aria-expanded="true"
+            aria-controls="collapseAnime"
+          >
+            <i class="fas fa-fw fa-bullseye"></i>
+            <span>18+ API</span>
+          </a>
+          <div
+            id="collapseAnime"
+            class="collapse"
+            aria-labelledby="headingAnime"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">P*rn API Features</h6>
+              <a class="collapse-item" href="/prn/home">Home XVIDEOS2</a>
+              <a class="collapse-item" href="/prn/search/lexi lore"
+                >Search XVIDEOS2</a
+              >
+              <a class="collapse-item" href="/prn/download?url="
+                >Download XVIDEOS2</a
+              >
+              <a class="collapse-item" href="/eprnr/home">Ep*rner home</a>
+              <a class="collapse-item" href="/eprnr/category"
+                >Ep*rner category</a
+              >
+              <a class="collapse-item" href="/eprnr/search?q=lexi lore"
+                >Ep*rner search</a
+              >
+              <a class="collapse-item" href="/api/randhntai">Random H3ntai</a>
+              <a class="collapse-item" href="/api/nhntais?q=loli"
+                >Search H3ntai</a
+              >
+              <a class="collapse-item" href="/api/nhntaidl?q="
+                >Download H3ntai (url or code)</a
+              >
+              <a class="collapse-item" href="/api/randgre">Random G0re</a>
+              <a class="collapse-item" href="/api/sgore?q=cops">Search G0re</a>
+              <a class="collapse-item" href="/api/xsearch?q=Lexi lore"
+                >Xnxx Search</a
+              >
+              <a class="collapse-item" href="/api/xdl?q=">Xnxx Download</a>
+            </div>
+          </div>
+        </li>
+        <!--li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGames" aria-expanded="true" aria-controls="collapseForm">
+            <i class="app-menu__icon fa fa-laptop"></i>
+            <span>Canvas API</span>
+        </a>
+        <div id="collapseGames" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+            <div class="py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Canvas Features</h6>
+            <a class="collapse-item" href="/canvas/fbcover?name=Mark&color=Cyan&address=USA&email=zuck@gmail.com&subname=Zuckerberg&sdt=n/a&uid=4">Facebook Cover</a>
+         </div>
+        </div>
+    </li-->
 
-		@keyframes slide {
-			0% {
-				transform: translateX(-25%);
-			}
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseCheck"
+            aria-expanded="true"
+            aria-controls="collapseCheck"
+          >
+            <i class="fas fa-fw fa-check"></i>
+            <span>Canvas API </span>
+          </a>
+          <div
+            id="collapseCheck"
+            class="collapse"
+            aria-labelledby="headingCheck"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Canvas API Features</h6>
+              <a
+                class="collapse-item"
+                href="/canvas/fbpost?uid=4&text=hi&name=Mark%20Zuckerberg"
+                >Facebook Post</a
+              >
+              <a class="collapse-item" href="/canvas/search?id="
+                >Search Avatar (using ID)</a
+              >
+              <a
+                class="collapse-item"
+                href="/canvas/fbcover?name=Mark&subname=Zuckerberg&sdt=n/a&address=USA&email=zuck@gmail.com&uid=4&color=Cyan"
+                >Facebook Cover</a
+              >
+              <a
+                class="collapse-item"
+                href="/canvas/fbcoverv2?name=Joshua&id=5&subname=Sy&color=red"
+                >Facebook Cover V2</a
+              >
+              <a
+                class="collapse-item"
+                href="/canvas/fbcoverv3?uid=4&birthday=May 14, 1984&love=Priscilla Chan&location=USA&hometown=California&name=Mark Zuckerberg&follow=119000000&gender=male"
+                >Facebook Cover V3</a
+              >
+              <a
+                class="collapse-item"
+                href="/canvas/fbcoverv4?name=Deku&id=2&subname=Midoriya&colorname=blue&colorsub=red"
+                >Facebook Cover V4</a
+              >
+              <a
+                class="collapse-item"
+                href="/canvas/fbcoverv5?name=Deku&id=4&subname=Midoriya&color=blue"
+                >Facebook Cover V5</a
+              >
+              <a
+                class="collapse-item"
+                href="/canvas/fbcoverv7?uid=4&name=Mark%20Zuckerberg&gender=Male&birthday=May%2014,%201984&love=Priscilla%20Chan&follower=119,009,952&location=Palo%20Alto,%20California&hometown=Dobbs%20Ferry,%20New%20York"
+                >Facebook Cover V6</a
+              >
+              <a
+                class="collapse-item"
+                href="/canvas/avatar?id=4&bgname=Joshua&signature=Joshua Sy&color=black"
+                >Avatar</a
+              >
+              <a
+                class="collapse-item"
+                href="/canvas/avatarv2?id=4&bgtext=Joshua&signature=Joshua%20Sy&color=black"
+                >Avatar V2</a
+              >
+              <a
+                class="collapse-item"
+                href="/canvas/uptime?id=4&instag=joshg&ghub=ysauhsoj&fb=Joshua%20Sy&hours=1&minutes=23&seconds=45&botname=Deku%20Bot"
+                >Uptime Robot Canvas</a
+              >
+              <a
+                class="collapse-item"
+                href="/canvas/welcome?name=Mark&groupname=Group%20Name&groupicon=https://i.ibb.co/G5mJZxs/rin.jpg&member=21&uid=4&background=https://i.ibb.co/4YBNyvP/images-76.jpg"
+                >Welcome</a
+              >
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseother"
+            aria-expanded="true"
+            aria-controls="collapseother"
+          >
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Other API</span>
+          </a>
+          <div
+            id="collapseother"
+            class="collapse"
+            aria-labelledby="headingother"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Other API Features</h6>
+              <a class="collapse-item" href="/others/image/upload?url=">Deku image Upload</a>
+              <a class="collapse-item" href="/others/image/gallery/ec6a97">Deku Image Gallery</a>
+              <a class="collapse-item" href="/ai-detect?q=">AI detector</a>
+              <a class="collapse-item" href="/iplu?ip=">IP Lookup</a>
+              <a class="collapse-item" href="/api/baybay?q=mahal kita"
+                >Text to Baybayin</a
+              >
+              <a class="collapse-item" href="/api/font?q=Joshua">Font text</a>
+              <a class="collapse-item" href="/emoji2gif?q=🥺">Emoji to GIF</a>
+              <a
+                class="collapse-item"
+                href="/new/voicevox-synthesis?id=1&text=hello"
+                >Voicevox Synthesis</a
+              >
+              <a class="collapse-item" href="/new/voicevox-speaker"
+                >Voicevox Speaker</a
+              >
+              <a
+                class="collapse-item"
+                href="/remini?q=https://telegra.ph/file/d6277949edfde2cff72ef.jpg"
+                >Enhance photo</a
+              >
+              <a class="collapse-item" href="/new/api/get-character?query=Tom"
+                >Search character in Character AI (c.ai)</a
+              >
+              <a class="collapse-item" href="#">Character AI (c.ai) SOON!</a>
+              <a class="collapse-item" href="/tempmail/create"
+                >Generate Tempmail</a
+              >
+              <a class="collapse-item" href="/tempmail/inbox?email="
+                >Get Tempmail Inbox</a
+              >
+              <!--a class="collapse-item" href="/anydl?url=">ANY DOWNLOADER</a-->
+              <a class="collapse-item" href="/getcookie?email=&password="
+                >Facebook Appstate getter</a
+              >
+              <a class="collapse-item" href="/smsb?number=&amount=&delay="
+                >SMS Bomber</a
+              >
+              <a class="collapse-item" href="/deku?prompt=who are you"
+                >Deku AI</a
+              >
+              <a class="collapse-item" href="bing?prompt=hi&mode=1">Bing AI</a>
+              <a class="collapse-item" href="/gptweb?prompt=hi">GPT Web</a>
+              <a class="collapse-item" href="/api/ai-gf?q=hi"
+                >AI Girlfriend (PRO)</a
+              >
+              <a class="collapse-item" href="/api/genmicro"
+                >Generate Microsoft account</a
+              >
+              <a class="collapse-item" href="/api/genmicro?name=joshua"
+                >Generate Microsoft account (custom name)</a
+              >
+              <a class="collapse-item" href="/"
+                >Deku AI (conversational) SOON!</a
+              >
+              <!--a class="collapse-item" href="/faceswap?imgurl=https://scontent.xx.fbcdn.net/v/t1.15752-9/434190675_426707416437634_1191677649431462534_n.jpg?stp=dst-jpg_p480x480&_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHOt5dkLnJeNeYHHNYgo-uqulsqqas1RaC6WyqpqzVFoB0BpKZSIk-KAC18Z3plE9Na_6rfRmgr2OsYrCo8X5OI&_nc_ohc=xeFLh6Sv-k8Ab6myClT&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdUNlupB8tLFSMsKbh13VkF25TzdF-zuB4MbpGGIXU4BFg&oe=663AEC75&toimgurl=https://scontent.xx.fbcdn.net/v/t1.15752-9/435447931_294761363654705_4231783770213327431_n.jpg?stp=dst-jpg_p480x480&_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGARkxpM7QoVyJwgwkC7soCo1oOtzb3-oCjWg63Nvf6gP3ALiHX2czZS8ESEFfOp0vegle2_U7Tnl7phdhX8NHO&_nc_ohc=sdyLkLC-noIAb7rx1jH&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdW8eVA47eXz8BTxecXRkSttf1__tOqWPXR1j9wTAYVD9w&oe=663ACBF4">AI Face Swap</a-->
+              <a class="collapse-item" href="/stalkgh?username="
+                >Github Stalk</a
+              >
+              <a class="collapse-item" href="/cdp"
+                >Couple Display Picture (CDP)</a
+              >
+              <a class="collapse-item" href="/catfact">Random Cat facts</a>
+              <a class="collapse-item" href="/dogfact">Random Dog facts</a>
+              <a class="collapse-item" href="/genderize?name=Joshua"
+                >Determine gender from a name</a
+              >
+              <a class="collapse-item" href="/insult"
+                >Generate random insult words</a
+              >
+              <a class="collapse-item" href="/quotes">Generate random quotes</a>
+              <a class="collapse-item" href="/bible"
+                >Generate random bible verse</a
+              >
+              <a
+                class="collapse-item"
+                href="/api/ml?id=822190774&serverid=12276"
+                >Mobile Legends Stalk</a
+              >
+              <a class="collapse-item" href="/api/mlhero?q=fanny"
+                >Mobile Legends Hero info</a
+              >
+              <!--a class="collapse-item" href="/fbtoken?uid=your_uid_,_email_or_username&password=your_password">Get Facebook Token and Cookies (appstate)</a-->
+              <!--a class="collapse-item" href="/other/ttp?text=love you <3">Text to Picture</a>
+            <a class="collapse-item" href="/other/attp?text=love you <3">Text to Gif</a>
+            <a class="collapse-item" href="/other/ssweb?link=https://tyz-api.herokuapp.com">ScreenShoot web</a>
+            <a class="collapse-item" href="/other/removebg?link=https://images-na.ssl-images-amazon.com/images/I/51vhBLpXhCL.jpg">Remove bg</a>
+            <a class="collapse-item" href="/other/merdeka">Merdeka News</a>
+            <a class="collapse-item" href="/other/meme">Meme</a>
+            <a class="collapse-item" href="/other/qrcode?text=hii">QR code</a-->
+            </div>
+          </div>
+        </li>
+        <hr class="sidebar-divider" />
+        <div class="version" id="version-ruangadmin"></div>
+      </ul>
 
-			100% {
-				transform: translateX(25%);
-			}
-		}
+      <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+          <nav
+            class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top bg-gray-900"
+          >
+            <button
+              id="sidebarToggleTop"
+              class="btn btn-link rounded-circle mr-3"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+            <ul class="navbar-nav ml-auto">
+              <div class="topbar-divider d-none d-sm-block"></div>
+              <li class="nav-item dropdown no-arrow">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="userDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    class="img-profile rounded-circle"
+                    src="https://i.imgur.com/fE9Jvtp.jpeg"
+                    style="max-width: 100px"
+                  />
+                  <span class="ml-2 d-none d-lg-inline text-white small"></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="container-fluid" id="container-wrapper">
+            <div
+              id="demo"
+              class="alert alert-dark alert-dismissible"
+              role="alert"
+            >
+              <div id="browser_info"></div>
+              <script>
+                function createDot() {
+                  const dot = document.createElement("div");
+                  dot.classList.add("dot");
+                  dot.style.animationDelay = `${Math.random() * 5}s`;
+                  dot.style.animationDuration = `${3 + Math.random() * 5}s`;
+                  dot.style.left = `${Math.random() * 100}vw`;
+                  dot.style.top = `${-10 + Math.random() * 5}vh`;
+                  document.body.appendChild(dot);
+                }
 
-		.navigator {
-			/*background-color: #00e1ff;*/
-			background-image: linear-gradient(-60deg, #09f 50%, #6c3 50%);
-			color: #fff;
-			display: flex;
-			/*margin: 0;*/
-			/*padding: auto;*/
-			overflow: hidden;
-			position: fixed;
-			top: 0;
-			width: 100%;
-			z-index: 1;
-			justify-content: left;
-		}
+                for (let i = 0; i < 100; i++) {
+                  createDot();
+                }
+                let pageLoadTime = localStorage.getItem("pageLoadTime");
 
-		.item {
-			margin: 5px 7px 7px 5px;
-			text-align: left;
-			float: left;
-			/*padding: 5px 5px;*/
+                if (pageLoadTime === null) {
+                  pageLoadTime = new Date().getTime();
+                  localStorage.setItem("pageLoadTime", pageLoadTime);
+                }
+                let arrBulan = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ];
+                let txt = "";
+                txt +=
+                  "<p><b>Browser CodeName</b>: " +
+                  navigator.appCodeName +
+                  "</p>";
+                txt += "<p><b>Browser Name</b>: " + navigator.appName + "</p>";
+                txt +=
+                  "<p><b>Cookies Enabled</b>: " +
+                  navigator.cookieEnabled +
+                  "</p>";
+                let ipmo;
+                setInterval(() => {
+                  const uptime = Math.floor(
+                    (new Date().getTime() - pageLoadTime) / 1000,
+                  );
+                  const hours = Math.floor(uptime / 3600);
+                  const remainingSeconds = uptime % 3600;
+                  const minutes = Math.floor(remainingSeconds / 60);
+                  const seconds = remainingSeconds % 60;
+                  oras =
+                    "<p><b>Uptime</b>: " +
+                    `${hours}h ${minutes}m ${seconds}s` +
+                    "</p>";
+                }, 1000);
+                fetch("https://api.ipify.org/?format=json")
+                  .then((data) => data.json())
+                  .then((data) => {
+                    ipmo = data.ip;
+                    txt += "<p><b>IP Address</b>: " + ipmo + "</p>";
+                  });
+                //txt += oras;
+                txt +=
+                  "<p><b>Browser Language</b>: " + navigator.language + "</p>";
+                txt += "<p><b>Browser Online</b>: " + navigator.onLine + "</p>";
+                txt += "<p><b>Platform</b>: " + navigator.platform + "</p>";
+                txt += "<p><b>User-agent</b>: " + navigator.userAgent + "</p>";
+                let text_el = document.querySelector("div#browser_info");
+                setInterval(() => {
+                  var d = new Date();
+                  const jam = d.getHours().toString().padStart(2, 0);
+                  const menit = d.getMinutes().toString().padStart(2, 0);
+                  const detik = d.getSeconds().toString().padStart(2, 0);
+                  const tgl = d.getDate();
+                  const bln = d.getMonth();
+                  const thn = d.getFullYear();
+                  const bulan = arrBulan[bln];
+                  text_el.innerHTML =
+                    txt +
+                    "<b>Date</b>: " +
+                    bulan +
+                    " " +
+                    tgl +
+                    " " +
+                    thn +
+                    "<br><br>" +
+                    "<b>Time</b>: " +
+                    jam +
+                    ":" +
+                    menit +
+                    ":" +
+                    detik;
+                }, 250);
+              </script>
+            </div>
+            <div class="row">
+<div class="col-xl-12 col-lg-12 col-md-12">
+<div class="card">
+<!--div class="card-header">
+<h4 class="card-title">Contact me <a href="https://facebook.com/joshg101" target="_blank">here</a></h4>
+</div-->
+  <div class="card-body text-sm-left font-weight-bold">CONTACT ME <a href="https://facebook.com/joshg101" target="_blank">HERE</a></div>
+<!--div class="card-body text-sm-left font-weight-bold">CLICK <a href="https://npmjs.com/package/dekuai" target="_blank">HERE</a> FOR WRAPPER</div-->
+</div>
+</div>
+          </div>
+            
+            <span> <br /> </span>
+            <footer class="sticky-footer bg-white">
+              <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                  <span
+                    >Copyright &copy;
+                    <script>
+                      document.write(new Date().getFullYear());
+                    </script>
+                    <b
+                      ><a href="https://facebook.com/joshg101" target="_blank"
+                        >Josh</a
+                      ></b
+                    >
+                  </span>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
 
-		}
-
-		.item:hover {
-			background-color: #00b3ff
-		}
-
-		#floating {
-			position: fixed;
-			bottom: 0;
-			right: 0;
-			margin: 10px;
-			z-index: 100;
-		}
-
-		#floating-button {
-			border-radius: 50%;
-			width: 40px;
-			height: 40px;
-			color: white;
-			background-color: #52cc00;
-			font-size: 20px;
-			margin-bottom: 5px;
-			/*border: 2px solid white;*/
-			border: none;
-			box-shadow: 0 0 15px 5px #00e1ff;
-		}
-
-		#floating-button:active {
-			background-color: #09f
-		}
-
-		.container {}
-
-		.pfp {
-			height: 120px;
-			width: 120px;
-			border-radius: 50%;
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			position: relative;
-			top: 65px;
-			border: 2px solid #6c3;
-		}
-
-		.box {
-			width: 290px;
-			height: 200px;
-			border: 2px solid #6c3;
-			border-radius: 10px;
-			background: rgb(0, 153, 255);
-			background: linear-gradient(90deg, rgba(0, 153, 255, 1) 11%, rgba(14, 160, 226, 1) 25%, rgba(75, 190, 106, 1) 66%, rgba(102, 204, 51, 1) 89%);
-			margin-bottom: px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.box h2 {
-			text-align: center;
-			color: cyan;
-			font-size: 25px;
-			position: relative;
-			top: 50px;
-			font-family: monospace;
-		}
-
-		.greet {
-			position: relative;
-			text-align: center;
-			font-size: 10px;
-			top: 35px;
-			border-right: 3px solid #6c3;
-			display: inline-block;
-			/* letter-spacing: 10px;*/
-			font-family: monospace;
-			width: 100%;
-			white-space: nowrap;
-			overflow: hidden;
-			animation: typing 2s steps(21),
-				cursor .4s step-end infinite alternate;
-		}
-
-		@keyframes cursor {
-			50% {
-				border-color: transparent;
-			}
-
-			100% {
-				border-color: #6c3;
-			}
-		}
-
-		@keyframes typing {
-			from {
-				width: 0%
-			}
-		}
-
-		.contact {
-			top: 37px;
-			width: 90%;
-			left: 8px;
-			height: 40px;
-			font-size: 25px;
-			margin: 0px 10px 0px 10px;
-			padding: auto;
-			background: rgb(17, 255, 0);
-			background: linear-gradient(90deg, rgba(17, 255, 0, 1) 11%, rgba(0, 152, 255, 1) 89%);
-			box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-			font-style: bold;
-			font-family: monospace;
-		}
-
-		.contact1 {
-			top: 50px;
-			width: 90%;
-			left: 8px;
-			height: 40px;
-			font-size: 25px;
-			margin: 0px 10px 0px 10px;
-			padding: auto;
-		}
-
-		.contact:active,
-		.contact1:active {
-			transform: translateY(3px)
-		}
-
-		button {
-			border: none;
-			border-radius: 20px;
-			color: black;
-			font-style: italic;
-			background-color: cyan;
-			width: fit-content;
-			position: relative;
-		}
-
-		.gif {
-			height: 120px;
-			width: 120px;
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			position: relative;
-			right: 85px;
-			bottom: 299px;
-		}
-
-		@media (max-width: 600px) {
-			.grid {
-				width: 100%;
-				flex-direction: column;
-			}
-		}
-	</style>
-</head>
-
-<body>
-	<div class="bg"></div>
-	<div class="bg bg2"></div>
-	<div class="bg bg3"></div>
-	<div id="floating">
-		<button class="fa fa-arrow-up" id="floating-button"></button>
-	</div>
-	<div class="container">
-		<img
-			src="https://i.imgur.com/7WLY24G.png"
-			class="pfp">
-		<div class="box">
-			<h2>Christel</h2>
-			<p class="greet">Welcome to my website!</p>
-			<a href="https://web.facebook.com/profile.php?id=100087372638705">
-				<button class="contact">Facebook</button>
-			</a>
-		</div>
-		<img src="https://i.imgur.com/tRLDlyS.gif" class="gif">
-	</div>
-	<script>
-		let btn = document.getElementById("floating-button");
-
-		async function scrollUp() {
-			window.scrollTo({
-				top: 0,
-				behavior: "smooth"
-			});
-		}
-		btn.addEventListener("click", scrollUp)
-	</script>
-
-</body>
-
+      <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+      </a>
+      <script src="https://indrijunanda.github.io/RuangAdmin/vendor/jquery/jquery.min.js"></script>
+      <script src="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="https://indrijunanda.github.io/RuangAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+      <script src="https://indrijunanda.github.io/RuangAdmin/js/ruang-admin.min.js"></script>
+      <script>
+        /*  Swal.fire({
+  title: "Welcome!",
+  text: "to Deku REST API!",
+  icon: "success" 
+}); */
+        let sound = new Howl({
+          src: ["https://files.catbox.moe/il9cy7.mp3"],
+          autoplay: true,
+          loop: true,
+          format: ["mp3"],
+          volume: 1,
+          onend: () => {},
+        });
+        sound.play();
+        //setTimeout(() => sound.play(), 1*1000);
+        Swal.fire({
+          title: "Hello there! 👋",
+          text: "Welcome to Clarence REST API! 🤗",
+          imageUrl: "https://i.imgur.com/fE9Jvtp.jpeg",
+          imageWidth: 300,
+          imageHeight: 200,
+          imageAlt: "Deku",
+        });
+      </script>
+    </div>
+  </body>
 </html>
