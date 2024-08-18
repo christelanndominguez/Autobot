@@ -4,8 +4,8 @@ const fs = require('fs').promises;
 const storageFile = 'user_data.json';
 const axiosStatusFile = 'axios_status.json';
 
-const primaryApiUrl = 'https://jonellccapisprojectv2-a62001f39859.herokuapp.com/api/gptconvo';
-const backupApiUrl = 'https://jonellccapisprojectv2-a62001f39859.herokuapp.com/api/v2/ai';
+const primaryApiUrl = 'https://sandipbaruwal.onrender.com/chatgpt';
+const backupApiUrl = 'https://sandipbaruwal.onrender.com/liner';
 
 let isPrimaryApiStable = true;
 
@@ -92,7 +92,7 @@ module.exports.run = async function ({ api, event, args }) {
             const totalRequestCount = await getTotalRequestCount();
             const userNames = await getUserNames(api, uid);
 
-            const responseMessage = `${backupResult}\n\n👤 Question Asked by: ${userNames.join(', ')}\n\n𝐜𝐫𝐞𝐝𝐢𝐭𝐬: https://www.facebook.com/Roronoa.Zor0o`;
+            const responseMessage = `${backupResult}\n\n👤 Question Asked by: ${userNames.join(', ')}\n\n𝐜𝐫𝐞𝐝𝐢𝐭𝐬: Belat gitilapan`;
             api.sendMessage(responseMessage, event.threadID, event.messageID);
 
             isPrimaryApiStable = false;
